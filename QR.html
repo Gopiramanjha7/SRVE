@@ -1,33 +1,44 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>SRVE App Redirect</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>SRVE Redirect</title>
 
   <script>
-    const androidLink =
-       "https://play.google.com/store/apps/details?id=in.srve.delivery";
+    // Replace with your real links
+    const playStore =
+        "https://play.google.com/store/apps/details?id=in.srve.delivery";
 
-    const iosLink =
-       "https://apps.apple.com/in/app/srve-everything-meat/id6761304955";
+    const appStore =
+      "https://apps.apple.com/in/app/srve-everything-meat/id6761304955";
 
-    const websiteLink =
-      "https://srve.in";
+    const website =
+         "https://srve.in/";
 
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
+    // Android
     if (/android/i.test(userAgent)) {
-      window.location.href = androidLink;
+      window.location.href = playStore;
     }
-    else if (/iPad|iPhone|iPod/.test(userAgent)) {
-      window.location.href = iosLink;
+
+    // iPhone/iPad
+    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      window.location.href = appStore;
     }
+
+    // Desktop/Web
     else {
-      window.location.href = websiteLink;
+      window.location.href = website;
     }
   </script>
 </head>
 
 <body>
-  Redirecting...
+  Redirecting to SRVE...
 </body>
 </html>
+```
