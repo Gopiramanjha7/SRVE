@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download App</title>
+
+  <script>
+    function redirectUser() {
+
+      // ===== YOUR APP LINKS =====
+
+      const androidUrl =
+        "https://play.google.com/store/apps/details?id=in.srve.delivery";
+
+      const iosUrl =
+        "https://apps.apple.com/in/app/srve-everything-meat/id6761304955";
+
+      const websiteUrl =
+        "https://srve.in/";
+
+      // ==========================
+
+      const userAgent =
+        navigator.userAgent || navigator.vendor || window.opera;
+
+      // Android Detection
+      if (/android/i.test(userAgent)) {
+        window.location.href = androidUrl;
+      }
+
+      // iPhone/iPad Detection
+      else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = iosUrl;
+      }
+
+      // Other Devices
+      else {
+        window.location.href = websiteUrl;
+      }
+    }
+
+    window.onload = redirectUser;
+  </script>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#000;
+      color:#fff;
+      text-align:center;
+      padding:20px;
+    }
+
+    .container{
+      max-width:500px;
+    }
+
+    .loader{
+      width:60px;
+      height:60px;
+      border:5px solid #333;
+      border-top:5px solid gold;
+      border-radius:50%;
+      margin:0 auto 20px;
+      animation:spin 1s linear infinite;
+    }
+
+    @keyframes spin{
+      100%{
+        transform:rotate(360deg);
+      }
+    }
+
+    h1{
+      font-size:32px;
+      margin-bottom:10px;
+      color:gold;
+    }
+
+    p{
+      color:#ccc;
+      font-size:16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="loader"></div>
+
+    <h1>Redirecting...</h1>
+
+    <p>
+      Please wait while we open the app download page.
+    </p>
+  </div>
+
+</body>
+</html>
